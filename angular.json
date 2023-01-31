@@ -118,6 +118,49 @@
           }
         }
       }
+    },
+    "athena-ui": {
+      "projectType": "library",
+      "root": "libs/athena-ui",
+      "sourceRoot": "libs/athena-ui/src",
+      "prefix": "athena",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/athena-ui/tsconfig.lib.json",
+            "project": "libs/athena-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/athena-ui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "tsConfig": [
+              "libs/athena-ui/tsconfig.lib.json",
+              "libs/athena-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/athena-ui/**/*"],
+            "linter": "eslint"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/athena-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

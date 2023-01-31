@@ -28,6 +28,9 @@
     "main-e2e": {
       "tags": [],
       "implicitDependencies": ["main"]
+    },
+    "athena-ui": {
+      "tags": []
     }
   }
 }
